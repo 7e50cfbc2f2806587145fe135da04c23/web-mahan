@@ -1,7 +1,4 @@
 @import "variables";
-@import "bootstrap/utilities";
-
-
 
 *, *:after, *:before {
   box-sizing: border-box;
@@ -19,6 +16,7 @@ html, body {
   font-size: $font-size-base;
   font-weight: $font-weight-base;
   line-height: $line-height-base;
+  font-family: iranyekan, sans-serif;
 }
 
 main {
@@ -70,8 +68,8 @@ main {
 @import "bootstrap/navbar";
 @import "bootstrap/spinners";
 @import "bootstrap/dropdown";
-@import "bootstrap/helpers";
-@import "bootstrap/utilities/api";
+@import "bootstrap/utilities";
+
 
 @import "icon";
 @import "buttons";
@@ -79,12 +77,6 @@ main {
 @import "container";
 @import "toolbar";
 @import "table";
-@import "nav";
 @import "paginator";
-@import "toggleInput";
-
-@import "inputs/capsuleInput";
-@import "inputs/textInput";
-@import "inputs/codeInput";
-@import "inputs/searchInput";
-@import "inputs/form";
+@import "tab";
+@import "avatar";

@@ -1,6 +1,5 @@
 @for $i from 0 through 20 {
-  $size: #{$i*$spacer};
-
+  $size: #{$i*$spacer*2};
   .w-#{$i} {
     width: #{$size}px !important;
   }

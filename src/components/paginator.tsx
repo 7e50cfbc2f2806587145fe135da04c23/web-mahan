@@ -1,9 +1,5 @@
 import React from 'react';
-
-const step = (x: number) => x >= 0 ? 1 : 0;
-const ramp = (x: number) => x * step(x);
-const range = (start: number, size: number) => Array.apply(null, Array(Math.floor(size - start + 1))).map((_, j) => j + Math.floor(start));
-
+import {ramp, xrange} from "coreact";
 
 export type PaginatorProps = {
   totalPages: number;
@@ -35,7 +31,7 @@ export const Paginator = (props: PaginatorProps) => {
           <li className="item icon fast-backward is-disabled is-hidden" onClick={() => onClick(Math.max(currentPage - 5, 0))}/>
       </>}
 
-      {range(manyPages ? ramp(e0) - ramp(e1 - totalPages + 1) : 0, manyPages ? e1 + ramp(-e0) - ramp(e1 - totalPages + 1) : totalPages - 1)
+      {xrange(manyPages ? ramp(e0) - ramp(e1 - totalPages + 1) : 0, manyPages ? e1 + ramp(-e0) - ramp(e1 - totalPages + 1) : totalPages - 1)
         .map((a, i) =>
           <PaginatorItem
             key={i}

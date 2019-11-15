@@ -14,7 +14,6 @@
   border: none;
   width: 100%;
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 
   &.disabled {
     background: $gray-200 !important;
@@ -56,11 +55,9 @@
   height: 36px;
   border-radius: 64px;
 
-  .icon {
-    font-size: 22px;
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
+  font-size: 18px;
+  &:hover {
+    background: rgba($black, 0.1);
   }
 }
 

@@ -10,13 +10,26 @@ const isDevelopment = process.env.NODE_ENV === 'development';
   const basePath = name ? ('/' + name) : '';
   require('coreact/dist/webpack').register(path.resolve(__dirname, '.'), basePath + '/dist/src');
   const Provider = require('./provider').default;
+  const common = [
+    '/assets/fonts/fonts.css',
+    '/assets/axios.js',
+    '/assets/jquery.js',
+    '/assets/popper.js',
+    '/assets/bootstrap.js',
+    '/assets/react.js',
+    '/assets/dom.js',
+    '/assets/router.js',
+    '/assets/routerdom.js',
+  ];
   serverHandler(app, {
     provider: Provider,
     match: basePath + '*',
     assets: isDevelopment ? [
-      '/dist/app.js?2',
+      ...common,
+      '/dist/app.js',
     ] : [
-      '/dist/app.js?2',
+      ...common,
+      '/dist/app.js',
       '/dist/app.css',
     ],
     enableGzip: true,

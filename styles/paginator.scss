@@ -1,7 +1,6 @@
-
 .paginator {
   display: inline-flex;
-  border-radius: 3px;
+  border-radius: $border-radius;
   user-select: none;
   list-style: none;
   padding: 0;
@@ -14,25 +13,24 @@
     width: $input-height;
     height: $input-height;
     border-radius: $border-radius;
-    transition: all 0.2s ease-in-out;
     background: $white;
     font-size: 12px;
     font-weight: 700;
     margin-right: $spacer/2;
-    box-shadow: 0 0 0 2px rgba(#000, 0.05);
+    box-shadow: 0 1px 0 0 rgba($black, 0.05);
     text-decoration: none;
+
 
     &:hover {
       color: $primary;
     }
-
-    &.is-hidden {
-      background: transparent;
-    }
-
     &.active {
       background: $primary;
       color: color-yiq($primary);
+    }
+
+    &.is-hidden {
+      background: transparent;
     }
 
     &.is-disabled {
@@ -63,5 +61,7 @@
         content: 'chevron_right' !important;
       }
     }
+
+
   }
 }

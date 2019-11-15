@@ -9,7 +9,6 @@ export class AuthService extends FormHandler {
   net = inject(Net, this);
 
 
-
   @save clientName: any = '';
   @observable @save token: string = '';
   @persist @save mobileNumber: string = '';
