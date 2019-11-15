@@ -4,13 +4,13 @@
   "description": "mahan desktop application",
   "scripts": {
     "pack::production": "NODE_ENV=production APP_NAME= webpack --mode=production",
-    "start:": "NODE_ENV=production APP_NAME= PORT=5000 node ./dist/server.js",
+    "start:": "NODE_ENV=production APP_NAME= PORT=35101 node ./dist/server.js",
     "pack:production": " npm run pack::production",
     "build": "rm -rf ./dist && tsc",
     "clean": "rm -rf ./dist ./bundle",
     "bundle": "npm run clean && npm run build && npm run pack:production",
     "start": "node ./app.js",
-    "watch": "npm run build && NODE_ENV=development APP_NAME= PORT=5000 node ./dist/server.js"
+    "watch": "npm run build && NODE_ENV=development APP_NAME= PORT=35101 node ./dist/server.js"
   },
   "author": "Aryan Alikhani",
   "license": "MIT",
@@ -50,7 +50,7 @@
   "dependencies": {
     "axios": "^0.19.0",
     "cookie-parser": "^1.4.4",
-    "coreact": "^1.8.0",
+    "coreact": "^1.8.1",
     "crypto-js": "^3.1.9-1",
     "express": "^4.17.1",
     "express-useragent": "^1.0.13",

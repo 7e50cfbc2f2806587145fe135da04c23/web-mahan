@@ -9,7 +9,7 @@ RUN npm install
 ADD . .
 RUN npm run bundle
 ENV ENV _env_
-ENV ENVKEYS API_ADDR
+ENV ENVKEYS API_ADDR API_PREFIX
 RUN /root/builder.sh .value ${ENVKEYS}
 # Production Image
 FROM node:10-alpine
@@ -23,5 +23,5 @@ COPY --from=build-env /root/assets ./assets
 COPY --from=build-env /root/bundle ./bundle
 COPY --from=build-env /root/dist ./dist
 COPY --from=build-env /root/run.sh .
-EXPOSE 5000
+EXPOSE 35101
 ENTRYPOINT [ "./run.sh", "node ./app.js" ]

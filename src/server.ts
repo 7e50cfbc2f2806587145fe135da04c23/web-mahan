@@ -1,12 +1,9 @@
 require('module-alias/register');
-
 const path = require('path');
 import express from 'express';
 import {serverHandler} from 'coreact/dist/serverHandler';
-
 const port = process.env.PORT;
 const isDevelopment = process.env.NODE_ENV === 'development';
-
 (async () => {
   const name = process.env.APP_NAME;
   const app = express();
@@ -31,7 +28,6 @@ const isDevelopment = process.env.NODE_ENV === 'development';
   });
   await app.listen(port, () => console.log(`Listening on port ${port}`));
 })();
-
 process.on('uncaughtException', (err) => {
-  console.log(err);
+    console.log(err);
 });

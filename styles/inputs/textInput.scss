@@ -1,0 +1,198 @@
+$primary-light: rgba($primary, 0.1);
+$danger-light: rgba($danger, 0.1);
+
+.text-input {
+
+  .content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-height: $input-height;
+    background: $gray-100;
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px $border-color;
+  }
+
+  .feedback {
+    display: none;
+  }
+
+  label {
+    align-items: center;
+    position: absolute;
+    font-weight: normal;
+    padding: $spacer/2 $spacer;
+    width: 100%;
+    color: $gray-500;
+    pointer-events: none;
+    z-index: 20;
+    white-space: nowrap;
+  }
+
+  select, textarea, input {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    background: transparent;
+    font-family: inherit;
+    resize: none;
+    line-height: initial;
+    border: none;
+    background-clip: padding-box;
+    outline: none;
+    padding: 0 $spacer;
+    border-radius: 3px;
+    appearance: none;
+    height: $input-height;
+  }
+
+
+  textarea {
+    padding: $spacer/2 $spacer;
+    height: auto;
+  }
+
+
+  .icon {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    font-size: 16px;
+    height: 24px;
+    right: $spacer/2;
+    z-index: 4;
+    pointer-events: none;
+    color: $gray-500;
+  }
+
+  &.is-textarea {
+    label {
+      top: 0;
+      height: $input-height;
+    }
+  }
+
+  &.is-select {
+    select {
+      padding: $spacer/2 $spacer;
+      color: transparent;
+      option {
+        color: $gray-800;
+      }
+    }
+    .icon {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 24px;
+      font-size: 16px;
+      height: 24px;
+      left: $spacer/2;
+      z-index: 4;
+      pointer-events: none;
+      color: $gray-500;
+    }
+  }
+
+  &.has-value {
+    .content {
+      background: $primary-light;
+      box-shadow: inset 0 0 0 1px $primary-light;
+    }
+
+    label {
+      display: flex;
+      font-size: 10px;
+      padding: 0 $spacer;
+      color: $primary;
+      top: 2px;
+      height: $input-height * 0.4;
+    }
+
+    textarea, input ,select {
+      color: $gray-800;
+    }
+
+    input, select {
+      position: absolute;
+      height: $input-height * 0.6;
+      width: 200px;
+      bottom: 2px;
+    }
+    select {
+      padding: 0 $spacer;
+    }
+    textarea {
+      padding: 0 $spacer;
+      margin-top: $spacer;
+    }
+  }
+
+  &.has-error {
+    .content {
+      background: $danger-light;
+      box-shadow: inset 0 0 0 1px $danger-light;
+    }
+
+    label {
+      color: $danger;
+    }
+    .feedback {
+      display: block;
+      color: $danger;
+      padding: 4px $spacer/2;
+    }
+
+  }
+
+  &.is-numeric {
+
+    label {
+      display: flex;
+      font-size: 10px;
+      padding: 0 $spacer;
+      top: 2px;
+      height: $input-height * 0.4;
+    }
+
+    textarea, input {
+      color: $gray-800;
+    }
+
+    input {
+      position: absolute;
+      height: $input-height * 0.6;
+      bottom: 2px;
+    }
+
+    textarea {
+      margin-top: $spacer;
+    }
+
+  }
+
+  &.is-disabled {
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+
+  .postfix {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    left: $spacer;
+    z-index: 3;
+    pointer-events: none;
+    color: $gray-500;
+  }
+
+}

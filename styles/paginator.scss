@@ -1,0 +1,67 @@
+
+.paginator {
+  display: inline-flex;
+  border-radius: 3px;
+  user-select: none;
+  list-style: none;
+  padding: 0;
+
+  .item {
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    width: $input-height;
+    height: $input-height;
+    border-radius: $border-radius;
+    transition: all 0.2s ease-in-out;
+    background: $white;
+    font-size: 12px;
+    font-weight: 700;
+    margin-right: $spacer/2;
+    box-shadow: 0 0 0 2px rgba(#000, 0.05);
+    text-decoration: none;
+
+    &:hover {
+      color: $primary;
+    }
+
+    &.is-hidden {
+      background: transparent;
+    }
+
+    &.active {
+      background: $primary;
+      color: color-yiq($primary);
+    }
+
+    &.is-disabled {
+      transform: none!important;
+    }
+
+    &.not-clickable {
+      background-color: $gray-100;
+      cursor: not-allowed !important;
+      pointer-events: none;
+    }
+
+    &.fast-forward {
+      pointer-events: auto!important;
+      &:after {
+        content: 'more_horiz';
+      }
+      &:hover:after {
+        content: 'chevron_left'!important;
+      }
+    }
+    &.fast-backward {
+      pointer-events: auto!important;
+      &:after {
+        content: 'more_horiz';
+      }
+      &:hover:after {
+        content: 'chevron_right' !important;
+      }
+    }
+  }
+}

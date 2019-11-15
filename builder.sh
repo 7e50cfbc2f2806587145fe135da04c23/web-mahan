@@ -1,7 +1,7 @@
 #!/bin/sh
 rm -rf .env && touch .env
 rm -rf run.sh && touch run.sh && chmod +x run.sh
-APIURL=config.com/${ENV}/mahan
+APIURL=infra.app.com/api/config/${ENV}/mahan
 printLn() {
   echo "$1" | tee -a run.sh > /dev/null
 }
@@ -12,14 +12,20 @@ secondArg() {
   echo "$2"
 }
 loadVariable() {
-  var=$(echo "$1" | sed 's/:/ /g')
-  key=$(firstArg $var)
-  keyalias=$key
-  sec=$(secondArg $var)
-  if [ -n "$sec" ]; then
-    keyalias=$sec
+  val=$(echo "$1" | sed 's/=/ /g')
+  keyalias=$(firstArg $val)
+  val=$(secondArg $val)
+
+  if [ -z "$val" ]; then
+    var=$(echo "$1" | sed 's/:/ /g')
+    key=$(firstArg $var)
+    keyalias=$key
+    sec=$(secondArg $var)
+    if [ -n "$sec" ]; then
+      keyalias=$sec
+    fi
+    val=$(curl -s "$APIURL/$key" | jq "$2?" -)
   fi
-  val=$(curl -s "$APIURL/$key" | jq "$2?" -)
   if [ -n "$val" ]; then
     echo "export $keyalias=$val" | tee -a .env
     printLn "export $keyalias=$val"

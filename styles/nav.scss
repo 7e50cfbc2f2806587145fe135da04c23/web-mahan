@@ -1,0 +1,80 @@
+.nav-charge {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 700;
+  height: $input-height;
+  user-select: none;
+  background: $white;
+  flex: 0 0 auto;
+
+
+  .brand {
+    object-fit: contain;
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+    margin: 0 $spacer;
+    border-radius: 6px;
+  }
+
+  .content {
+    background: $white;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    z-index: 1500;
+  }
+
+  .logo {
+    position: absolute;
+    object-fit: contain;
+    width: 79px;
+    height: 100%;
+    z-index: 1501;
+    pointer-events: none;
+  }
+
+
+  .tabs {
+    position: relative;
+    display: flex;
+    height: 100%;
+    white-space: nowrap;
+
+    .item {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 $spacer;
+      color: $dark;
+      text-decoration: none;
+      outline: none;
+      font-weight: normal;
+
+      cursor: pointer;
+      &.active:after {
+        background: $primary;
+      }
+
+      &:hover {
+        background: rgba($primary, 0.05);
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+}
