@@ -13,5 +13,12 @@ const instance = new Webpack({
   enableGzip: true,
   path: path.resolve(__dirname, './bundle' + basePath),
   publicPath: basePath + '/dist/',
+  externals: {
+    'react': 'React',
+    'react-dom': 'ReactDOM',
+    'react-router': 'ReactRouter',
+    'react-router-dom': 'ReactRouterDOM',
+    'axios': 'axios',
+  },
 });
 module.exports = instance.config();
