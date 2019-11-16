@@ -1,16 +1,15 @@
 import React, {Component} from 'react';
-import {consumer, inject} from "coreact";
-import {AuthService} from "services/authService";
+import {consumer} from "coreact";
+import {Route, Switch} from "react-router";
+import {Routes} from "lib/routes";
+import {Home} from "./home/home";
 
 @consumer
 export class App extends Component {
 
-  auth = inject(AuthService, this);
-
   render() {
-    return <div className="hello-world">
-      hello <i className="icon">wb_sunny</i>
-      salam
-    </div>
+    return <Switch>
+      <Route path={Routes.home()} component={Home}/>
+    </Switch>
   }
 }

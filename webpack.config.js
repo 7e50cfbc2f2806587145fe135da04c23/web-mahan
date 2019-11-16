@@ -17,8 +17,11 @@ const instance = new Webpack({
     'react': 'React',
     'react-dom': 'ReactDOM',
     'react-router': 'ReactRouter',
-    'react-router-dom': 'ReactRouterDOM',
     'axios': 'axios',
+  },
+  sassOptions: {
+    includePaths: [path.resolve(__dirname, './styles')],
+    data:'@import "variables";'
   },
 });
 module.exports = instance.config();

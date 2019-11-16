@@ -7,6 +7,7 @@ export class Net extends NetLayer {
   constructor(context: RequestContext) {
     super(null);
   }
+
   async serviceWillLoad(context: RequestContext) {
     const configuration = this.configuration;
     configuration.timeout = 12000;

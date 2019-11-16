@@ -1,4 +1,6 @@
+@import "bootstrap/vendor/rfs";
 @import "variables";
+
 
 *, *:after, *:before {
   box-sizing: border-box;
@@ -7,7 +9,7 @@
 html, body {
   padding: 0;
   margin: 0;
-  background: none;
+  background: transparent;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -17,9 +19,6 @@ html, body {
   font-weight: $font-weight-base;
   line-height: $line-height-base;
   font-family: iranyekan, sans-serif;
-}
-
-main {
   &:before {
     content: '';
     position: fixed;
@@ -27,7 +26,6 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #fff;
     z-index: -10;
   }
 }
@@ -70,13 +68,10 @@ main {
 @import "bootstrap/dropdown";
 @import "bootstrap/utilities";
 
-
-@import "icon";
-@import "buttons";
-@import "spacing";
-@import "container";
-@import "toolbar";
-@import "table";
-@import "paginator";
-@import "tab";
-@import "avatar";
+@import "common/icon";
+@import "common/spacing";
+@import "common/container";
+@import "common/table";
+@import "common/paginator";
+@import "common/tab";
+@import "common/avatar";

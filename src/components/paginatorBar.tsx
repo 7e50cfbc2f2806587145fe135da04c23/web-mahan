@@ -3,7 +3,7 @@ import {Paginator} from "components/paginator";
 import {Spinner} from "components/spinner";
 
 
-export const PaginatorBar = (props: { total: number, page: number, pending: boolean, onChange: (page: number)=>any }) => {
+export const PaginatorBar = (props: { total: number, page: number, pending: boolean, onChange: (page: number) => any }) => {
   const {total, page, onChange, pending} = props;
   return <>
     <Paginator totalPages={Math.ceil(total / 10)} currentPage={page} shift={2} onClick={onChange}/>

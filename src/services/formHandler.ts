@@ -7,7 +7,7 @@ export interface FormState {
   messages: { [key: string]: string },
 }
 
-export class FormHandler extends Service{
+export class FormHandler extends Service {
   @observable formData: FormState = {
     status: 'none',
     pending: false,
@@ -15,7 +15,7 @@ export class FormHandler extends Service{
     messages: {},
   };
 
-  protected start(){
+  protected start() {
     this.formData = {
       status: 'started',
       message: '',
@@ -24,7 +24,7 @@ export class FormHandler extends Service{
     };
   }
 
-  protected succeed(){
+  protected succeed() {
     this.formData = {
       status: 'succeed',
       message: '',
@@ -33,7 +33,7 @@ export class FormHandler extends Service{
     };
   }
 
-  protected failed(message: string, messages: any = {}){
+  protected failed(message: string, messages: any = {}) {
     this.formData = {
       status: 'succeed',
       message: message,

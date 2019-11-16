@@ -11,6 +11,7 @@ enum WeekDay {
   friday = 5,
   saturday = 6,
 }
+
 type DateTuple = [number, number, number];
 
 
@@ -33,6 +34,7 @@ export function formatDate(date: string) {
   const [jy, jm, jd] = toPersian(dt);
   return `${zeroFill(jy, 4)}/${zeroFill(jm, 2)}/${zeroFill(jd, 2)}`
 }
+
 export function formatTime(date: string) {
   const dt = new Date(date);
   return `${zeroFill(dt.getHours(), 2)}:${zeroFill(dt.getMinutes(), 2)}`

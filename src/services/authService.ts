@@ -23,9 +23,9 @@ export class AuthService extends FormHandler {
 
 
   async serviceDidLoad(context: RequestContext) {
-    if (context.environment == 'client'){
+    if (context.environment == 'client') {
       this.registerMiddleware()
-    }else {
+    } else {
 
       this.clientName = this.parseClientName(context.useragent);
       if (context.cookies[this.cookieName]) {

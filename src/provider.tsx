@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react';
 import {AppProvider} from 'coreact';
 import {App} from './app';
+
 export default class Provider extends AppProvider {
   async providerWillLoad() {
     this.storagePrefix = 'web';

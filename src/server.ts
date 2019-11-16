@@ -2,6 +2,7 @@ require('module-alias/register');
 const path = require('path');
 import express from 'express';
 import {serverHandler} from 'coreact/dist/serverHandler';
+
 const port = process.env.PORT;
 const isDevelopment = process.env.NODE_ENV === 'development';
 (async () => {
@@ -12,14 +13,13 @@ const isDevelopment = process.env.NODE_ENV === 'development';
   const Provider = require('./provider').default;
   const common = [
     '/assets/fonts/fonts.css',
-    '/assets/axios.js',
-    '/assets/jquery.js',
-    '/assets/popper.js',
-    '/assets/bootstrap.js',
-    '/assets/react.js',
-    '/assets/dom.js',
-    '/assets/router.js',
-    '/assets/routerdom.js',
+    '/assets/axios.js.gz',
+    '/assets/jquery.js.gz',
+    '/assets/popper.js.gz',
+    '/assets/bootstrap.js.gz',
+    '/assets/react.js.gz',
+    '/assets/dom.js.gz',
+    '/assets/router.js.gz',
   ];
   serverHandler(app, {
     provider: Provider,
@@ -29,7 +29,7 @@ const isDevelopment = process.env.NODE_ENV === 'development';
       '/dist/app.js',
     ] : [
       ...common,
-      '/dist/app.js',
+      '/dist/app.js.gz',
       '/dist/app.css',
     ],
     enableGzip: true,
@@ -42,5 +42,5 @@ const isDevelopment = process.env.NODE_ENV === 'development';
   await app.listen(port, () => console.log(`Listening on port ${port}`));
 })();
 process.on('uncaughtException', (err) => {
-    console.log(err);
+  console.log(err);
 });
